@@ -1,0 +1,39 @@
+﻿@page
+@model Primark.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create A Customer </h1>
+
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label">Customer ID</label>
+                <input type="text" asp-for="CusRec.CustomerID" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label class="control-label">Customer First Name</label>
+                <input type="text" asp-for="CusRec.CusomerFirstName" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label class="control-label">Customer Last Name</label>
+                <input type="text" asp-for="CusRec.CustomerLastName" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label class="control-label">Customer Email</label>
+                <input type="text" asp-for="CusRec.CustomerEmail" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Create" class="btn btn-secondary" />
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@page
+@model Primark.Pages.UploadFile.UploadModel
+@{
+}
+
+<h1>Upload Files</h1>
+<br />
+
+<div class="col-md-4">
+    <form method="post" enctype="multipart/form-data">
+
+        <div>
+            <label>Select an image file to upload</label>
+            <input type="file" asp-for="CusFile" onchange="readURL(this)" accept="image/*" />
+        </div>
+        <br />
+
+        <div>
+            <label>@Html.DisplayNameFor(model => model.CusFileRec.CustomerName)</label>
+            <input type="text" asp-for="CusFileRec.CustomerName" class="form-control" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Upload" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<br />
+<div>
+    <img id="Img" src="" alt="User Picture" style="width: 200px;" />
+</div>
