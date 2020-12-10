@@ -34,8 +34,8 @@ namespace Primark.Pages.AdminPages
             SessionID = HttpContext.Session.GetString(SessionKeyName3);
 
 
-            DatabaseConnect dbstring = new DatabaseConnect();
-            string DbConnection = dbstring.DatabaseString(); 
+            // DatabaseConnect dbstring = new DatabaseConnect();
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Login_Session.mdf;Integrated Security=True";
             Console.WriteLine(DbConnection);
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();

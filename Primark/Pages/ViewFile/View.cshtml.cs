@@ -15,8 +15,8 @@ namespace Primark.Pages.ViewFile
         public List<CustomerFile> FileRec { get; set; }
         public void OnGet()
         {
-            DBConnection DBCon = new DBConnection();
-            string DbString = DBCon.DbString();
+            //DBConnection DBCon = new DBConnection();
+            string DbString =  @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Files.mdf;Integrated Security=True";
             SqlConnection conn = new SqlConnection(DbString);
             conn.Open();
 
@@ -33,8 +33,9 @@ namespace Primark.Pages.ViewFile
                 {
                     CustomerFile rec = new CustomerFile();
                     rec.Id = reader.GetInt32(0);
-                    rec.CustomerName = reader.GetString(1);
-                    rec.FileName = reader.GetString(2);
+                    rec.CustomerFirstName = reader.GetString(1);
+                    rec.CustomerLastName = reader.GetString(2);
+                    rec.FileName = reader.GetString(3);
                     FileRec.Add(rec);
                 }
             }

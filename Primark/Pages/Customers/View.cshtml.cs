@@ -16,7 +16,7 @@ namespace Primark.Pages.Customers
 
         public void OnGet()
         {
-            string DbConnection = @""; // Add database connection stirng 
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Database.mdf;Integrated Security=True"; // Add database connection stirng 
 
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
@@ -36,9 +36,11 @@ namespace Primark.Pages.Customers
                     Customer record = new Customer();
                     record.Id = reader.GetInt32(0);
                     record.CustomerID = reader.GetString(1);
-                    record.CustomerFirstName = reader.GetString(2);
-                    record.CustomerLastName = reader.GetString(3);
+                    record.CustomerFName = reader.GetString(2);
+                    record.CustomerLName = reader.GetString(3);
                     record.CustomerEmail = reader.GetString(4);
+                    record.CustomerAge = reader.GetInt32(5);
+                    record.CustomerTelephone= reader.GetString(6);
 
                     CusRec.Add(record);
                 }

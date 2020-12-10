@@ -33,8 +33,8 @@ namespace Primark.Pages.Login
             }
 
 
-            DatabaseConnect dbstring = new DatabaseConnect(); //creating an object from the class
-            string DbConnection = dbstring.DatabaseString(); //calling the method from the class
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Login_Session.mdf;Integrated Security=True";
+           // DatabaseConnect dbstring = new DatabaseConnect(); 
             Console.WriteLine(DbConnection);
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();

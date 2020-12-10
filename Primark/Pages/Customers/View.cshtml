@@ -17,13 +17,19 @@
                     @Html.DisplayNameFor(model => model.CusRec[0].CustomerID)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CusRec[0].CustomerFirstName)
+                    @Html.DisplayNameFor(model => model.CusRec[0].CustomerFName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CusRec[0].CustomerLastName)
+                    @Html.DisplayNameFor(model => model.CusRec[0].CustomerLName)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.CusRec[0].CustomerEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CusRec[0].CustomerAge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CusRec[0].CustomerTelephone)
                 </th>
                 <th>
                     Actions
@@ -34,15 +40,17 @@
 
         @for (int i = 0; i < Model.CusRec.Count; i++)
         {
-<tr>
-    <td>@Model.CusRec[i].CustomerID</td>
-    <td>@Model.CusRec[i].CustomerFirstName</td>
-    <td>@Model.CusRec[i].CustomerLastName</td>
-    <td>@Model.CusRec[i].CustomerEmail</td>
-    <td>
-        <a asp-page="/Students/Update" asp-route-id="@Model.CusRec[i].Id">Update</a>
-        <a asp-page="/Students/Delete" asp-route-id="@Model.CusRec[i].Id">Delete</a>
+    <tr>
+        <td>@Model.CusRec[i].CustomerID</td>
+        <td>@Model.CusRec[i].CustomerFName</td>
+        <td>@Model.CusRec[i].CustomerLName</td>
+        <td>@Model.CusRec[i].CustomerEmail</td>
+        <td>@Model.CusRec[i].CustomerAge </td>
+        <td>@Model.CusRec[i].CustomerTelephone</td>
+     <td>
+        <a asp-page="/Customers/Update" asp-route-id="@Model.CusRec[i].Id">Update</a>
+        <a asp-page="/Customers/Delete" asp-route-id="@Model.CusRec[i].Id">Delete</a>
     </td>
-</tr>}
+    </tr>}
     </table>
 </div>

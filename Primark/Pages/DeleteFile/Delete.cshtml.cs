@@ -26,8 +26,8 @@ namespace Primark.Pages.DeleteFile
 
         public IActionResult OnGet(int? Id)
         {
-            DBConnection DBCon = new DBConnection();
-            string DbString = DBCon.DbString();
+            //DBConnection DBCon = new DBConnection();
+            string DbString =  @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Files.mdf;Integrated Security=True";
             SqlConnection conn = new SqlConnection(DbString);
             conn.Open();
 
@@ -43,12 +43,12 @@ namespace Primark.Pages.DeleteFile
                 while (reader.Read())
                 {
                     CusFileRec.Id = reader.GetInt32(0);
-                    CusFileRec.CustomerName = reader.GetString(1);
-                    CusFileRec.FileName = reader.GetString(2);
+                    CusFileRec.CustomerFirstName= reader.GetString(1);
+                    CusFileRec.CustomerLastName = reader.GetString(2);
+                    CusFileRec.FileName = reader.GetString(3);
                 }
 
                 Console.WriteLine("File name : " + CusFileRec.FileName);
-
 
             }
 
@@ -63,15 +63,13 @@ namespace Primark.Pages.DeleteFile
             return RedirectToPage("/ViewFile/View");
         }
 
-
-
         public void deletePicture(int Id, string FileName)
         {
             Console.WriteLine("Record Id : " + Id);
             Console.WriteLine("File Name : " + FileName);
 
-            DBConnection DBCon = new DBConnection();
-            string DbString = DBCon.DbString();
+            // DBConnection DBCon = new DBConnection();
+            string DbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Files.mdf;Integrated Security=True";
             SqlConnection conn = new SqlConnection(DbString);
             conn.Open();
 
@@ -90,14 +88,5 @@ namespace Primark.Pages.DeleteFile
 
 
         }
-
-
-
-
-
-
-
-
-
     }
 }

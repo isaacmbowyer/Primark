@@ -9,7 +9,7 @@ namespace Primark.Pages.DatabaseConnection
     {
         public string DatabaseString()
         {
-            string DbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\Desktop\Week-9B-Solution---Login_Session-master\Login_Session\Data\Login_Session.mdf;Integrated Security=True;Connect Timeout=30";  // Connect Data String to Login_Session.mdf
+            string DbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Login_Session.mdf;Integrated Security=Truee";  // Connect Data String to Login_Session.mdf
             return DbString;
         }
     }

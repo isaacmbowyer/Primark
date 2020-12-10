@@ -10,20 +10,18 @@ using Primark.Models;
 namespace Primark.Pages.Customers
 {
     public class UpdateModel : PageModel
-    {
+    { 
+        
         [BindProperty]
         public Customer CusRec { get; set; }
 
-        public void OnGet()
-        {
-        }
         public IActionResult OnGet(int? id)
         {
-
-            string DbConnection = "";  // Database conencition string goes here 
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Database.mdf;Integrated Security=True";
 
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
+
 
 
             CusRec = new Customer();
@@ -34,6 +32,7 @@ namespace Primark.Pages.Customers
                 command.CommandText = "SELECT * FROM Customer WHERE Id = @ID";
 
                 command.Parameters.AddWithValue("@ID", id);
+                Console.WriteLine("The id : " + id);
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -41,9 +40,12 @@ namespace Primark.Pages.Customers
                 {
                     CusRec.Id = reader.GetInt32(0);
                     CusRec.CustomerID = reader.GetString(1);
-                    CusRec.CustomerFirstName = reader.GetString(2);
-                    CusRec.CustomerLastName = reader.GetString(3);
+                    CusRec.CustomerFName = reader.GetString(2);
+                    CusRec.CustomerLName = reader.GetString(3);
                     CusRec.CustomerEmail = reader.GetString(4);
+                    CusRec.CustomerAge = reader.GetInt32(5);
+                    CusRec.CustomerTelephone = reader.GetString(6);
+
                 }
 
 
@@ -53,10 +55,35 @@ namespace Primark.Pages.Customers
 
             return Page();
 
-
         }
 
 
+        public IActionResult OnPost()
+        {
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Database.mdf;Integrated Security=True";
 
+        SqlConnection conn = new SqlConnection(DbConnection);
+            conn.Open();
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = conn;
+                command.CommandText = "UPDATE Customer SET CustomerId = @CusID, CustomerFName = @CusFName, CustomerLName = @CusLName, CustomerEmail = @CusEmail, CustomerAge = @CusAge, CustomerTelephone = @CusTel WHERE Id = @ID";
+
+                command.Parameters.AddWithValue("@ID", CusRec.Id);
+                command.Parameters.AddWithValue("@CusID", CusRec.CustomerID);
+                command.Parameters.AddWithValue("@CusFName", CusRec.CustomerFName);
+                command.Parameters.AddWithValue("@CusLName", CusRec.CustomerLName);
+                command.Parameters.AddWithValue("@CusEmail", CusRec.CustomerEmail);
+                command.Parameters.AddWithValue("@CusAge", CusRec.CustomerAge);
+                command.Parameters.AddWithValue("@CusTel", CusRec.CustomerTelephone);
+
+                command.ExecuteNonQuery();
+            }
+
+            conn.Close();
+
+            return RedirectToPage("/Index");
+        }
     }
 }

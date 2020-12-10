@@ -45,8 +45,8 @@ namespace Primark.Pages.Users
 
         public IActionResult OnPost()
         {
-            DatabaseConnect dbstring = new DatabaseConnect(); //creating an object from the class
-            string DbConnection = dbstring.DatabaseString(); //calling the method from the class
+            // DatabaseConnect dbstring = new DatabaseConnect(); //creating an object from the class
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Login_Session.mdf;Integrated Security=True";
             Console.WriteLine(DbConnection);
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
@@ -68,7 +68,7 @@ namespace Primark.Pages.Users
                 command.ExecuteNonQuery();
             }
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/AdminPages/AdminIndex");
         }
     }
 }

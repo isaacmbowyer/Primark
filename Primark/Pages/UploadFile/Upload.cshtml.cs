@@ -37,35 +37,34 @@ namespace Primark.Pages.UploadFile
         public IActionResult OnPost()
         {
 
-            var FileToUpload = Path.Combine(_env.WebRootPath, "Files", CusFile.FileName);//this variable consists of file path
+            var FileToUpload = Path.Combine(_env.WebRootPath, "Files", CusFile.FileName);
             Console.WriteLine("File Name : " + FileToUpload);
 
 
 
             using (var FStream = new FileStream(FileToUpload, FileMode.Create))
             {
-                CusFile.CopyTo(FStream);//copy the file into FStream variable
+                CusFile.CopyTo(FStream); //copy the file into FStream variable
             }
 
-            DBConnection DBCon = new DBConnection();
-            string DbString = DBCon.DbString();
+            // DBConnection DBCon = new DBConnection();
+            string DbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Files.mdf;Integrated Security=True";
             SqlConnection conn = new SqlConnection(DbString);
             conn.Open();
 
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"INSERT CustomerFile (CustomerName, FileName) VALUES (@CusName, @FName)";
-                command.Parameters.AddWithValue("@CusName", CusFileRec.CustomerName);
+                command.CommandText = @"INSERT CustomerFile (CustomerFirstName, CustomerLastName, FileName) VALUES (@CusFName, @CusLName @FName)";
+                command.Parameters.AddWithValue("@CusFName", CusFileRec.CustomerFirstName);
+                command.Parameters.AddWithValue("@CusLName", CusFileRec.CustomerLastName);
                 command.Parameters.AddWithValue("@FName", CusFile.FileName);
-                Console.WriteLine("File name : " + CusFileRec.CustomerName);
-                Console.WriteLine("File name : " + CusFile.FileName);
                 command.ExecuteNonQuery();
             }
 
 
 
-            return RedirectToPage("/index");
+            return RedirectToPage("AdminPages/AdminIndex");
         }
 
     

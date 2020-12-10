@@ -18,14 +18,14 @@
                 <span asp-validation-for="CusRec.CustomerID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CusRec.CustomerFirstName" class="control-label"></label>
-                <input asp-for="CusRec.CustomerFirstName" class="form-control" />
-                <span asp-validation-for="CusRec.CustomerFirstName" class="text-danger"></span>
+                <label asp-for="CusRec.CustomerFName" class="control-label"></label>
+                <input asp-for="CusRec.CustomerFName" class="form-control" />
+                <span asp-validation-for="CusRec.CustomerFName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CusRec.CustomerLastName" class="control-label"></label>
-                <input asp-for="CusRec.CustomerLastName" class="form-control" />
-                <span asp-validation-for="CusRec.CustomerLastName" class="text-danger"></span>
+                <label asp-for="CusRec.CustomerLName" class="control-label"></label>
+                <input asp-for="CusRec.CustomerLName" class="form-control" />
+                <span asp-validation-for="CusRec.CustomerLName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CusRec.CustomerEmail" class="control-label"></label>
@@ -33,14 +33,20 @@
                 <span asp-validation-for="CusRec.CustomerEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CusRec.CustomerAge" class="control-label"></label>
+                <input asp-for="CusRec.CustomerAge" class="form-control" />
+                <span asp-validation-for="CusRec.CustomerAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CusRec.CustomerTelephone" class="control-label"></label>
+                <input asp-for="CusRec.CustomerTelephone" class="form-control" />
+                <span asp-validation-for="CusRec.CustomerTelephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

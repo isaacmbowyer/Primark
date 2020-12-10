@@ -17,7 +17,7 @@ namespace Primark.Pages.Customers
         public IActionResult OnGet(int? id)
         {
 
-            string DbConnection = @"";  // Database Connection string goes here
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Database.mdf;Integrated Security=True";  
 
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
@@ -34,20 +34,24 @@ namespace Primark.Pages.Customers
                 {
                     CustomerRec.Id = reader.GetInt32(0);
                     CustomerRec.CustomerID = reader.GetString(1);
-                    CustomerRec.CustomerFirstName = reader.GetString(2);
-                    CustomerRec.CustomerLastName = reader.GetString(3);
+                    CustomerRec.CustomerFName = reader.GetString(2);
+                    CustomerRec.CustomerLName = reader.GetString(3);
                     CustomerRec.CustomerEmail = reader.GetString(4);
+                    CustomerRec.CustomerAge = reader.GetInt32(5);
+                    CustomerRec.CustomerTelephone = reader.GetString(6);
+
+
                 }
-
             }
+                conn.Close();
 
-            conn.Close();
-
-            return Page();
+                return Page();
+            
         }
+
         public IActionResult OnPost()
         {
-            string DbConnection = @""; // Datbase connection string 
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Database.mdf;Integrated Security=True"; // Datbase connection string 
 
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();

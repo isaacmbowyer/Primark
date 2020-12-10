@@ -19,7 +19,7 @@ namespace Primark.Pages.Customers
 
         public IActionResult OnPost()
         {
-            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\zairu\source\repos\Week8A\DatabaseConnection1\Data\DatabaseConnection1.mdf;Integrated Security=True;Connect Timeout=30";  // Replace with DB with connection string 
+            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Database.mdf;Integrated Security=True";  
 
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
@@ -27,12 +27,14 @@ namespace Primark.Pages.Customers
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"INSERT INTO Customer (CustomerID, CustomerFirstName, CustomerLastLevel, CustomerEmail) VALUES (@CID, @CFName, @CLName, @CEmail)";
+                command.CommandText = @"INSERT INTO Customer (CustomerID, CustomerFName, CustomerLname, CustomerEmail, CustomerAge, CustomerTelephone) VALUES (@CID, @CFName, @CLName, @CEmail, @CAge, @CTel)";
 
                 command.Parameters.AddWithValue("@CID", CusRec.CustomerID);
-                command.Parameters.AddWithValue("@CFName", CusRec.CustomerFirstName);
-                command.Parameters.AddWithValue("@CLName", CusRec.CustomerLastName);
+                command.Parameters.AddWithValue("@CFName", CusRec.CustomerFName);
+                command.Parameters.AddWithValue("@CLName", CusRec.CustomerLName);
                 command.Parameters.AddWithValue("@CEmail", CusRec.CustomerEmail);
+                command.Parameters.AddWithValue("@CAge", CusRec.CustomerAge);
+                command.Parameters.AddWithValue("@CTel", CusRec.CustomerTelephone);
 
                 command.ExecuteNonQuery();
             }

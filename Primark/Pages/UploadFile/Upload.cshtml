@@ -3,7 +3,7 @@
 @{
 }
 
-<h1>Upload Files</h1>
+<h1>Upload your Shopping Files</h1>
 <br />
 
 <div class="col-md-4">
@@ -16,8 +16,12 @@
         <br />
 
         <div>
-            <label>@Html.DisplayNameFor(model => model.CusFileRec.CustomerName)</label>
-            <input type="text" asp-for="CusFileRec.CustomerName" class="form-control" />
+            <label>@Html.DisplayNameFor(model => model.CusFileRec.CustomerFirstName)</label>
+            <input type="text" asp-for="CusFileRec.CustomerFirstName" class="form-control" />
+        </div>
+        <div>
+            <label>@Html.DisplayNameFor(model => model.CusFileRec.CustomerLastName)</label>
+            <input type="text" asp-for="CusFileRec.CustomerLastName" class="form-control" />
         </div>
         <br />
         <div>
@@ -28,5 +32,5 @@
 
 <br />
 <div>
-    <img id="Img" src="" alt="User Picture" style="width: 200px;" />
+    <img id="Img" src="" alt="Shopping Picture" style="width: 200px;" />
 </div>
