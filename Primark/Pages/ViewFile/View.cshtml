@@ -3,7 +3,7 @@
 @{
 }
 
-<h1>View Picture</h1>
+<h1>View Shopping Items</h1>
 <br />
 <div class="col-md-10">
     <table class="table">
@@ -19,12 +19,17 @@
 
         @for (int i = 0; i < Model.FileRec.Count; i++)
         {
-    <tr>
-        <td>@Model.FileRec[i].CustomerFirstName</td>
-        <td>@Model.FileRec[i].CustomerLastName</td>
-        <td>@Model.FileRec[i].FileName</td>
-        <td><img src="~/Files/@Model.FileRec[i].FileName" style=" max-width:80px;" /></td>
-        <td><a asp-page="/DeleteFile/Delete" asp-route-id="@Model.FileRec[i].Id">Delete</a></td>
-    </tr>}
-    </table>
+            <tr>
+                <td>@Model.FileRec[i].CustomerFName</td>
+                <td>@Model.FileRec[i].CustomerLName</td>
+                <td>@Model.FileRec[i].FileName</td>
+                <td><img src="~/Files/@Model.FileRec[i].FileName" style=" max-width:80px;" /></td>
+                <td><a asp-page="/DeleteFile/Delete" asp-route-id="@Model.FileRec[i].Id">Delete</a></td>
+            </tr>
+        }
+    </table>   
+    <br />
+    <div>
+        <a asp-page="/AdminPages/AdminIndex">Back to Main Admin</a>
+    </div>
 </div>

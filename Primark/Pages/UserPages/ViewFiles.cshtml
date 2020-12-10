@@ -1,0 +1,31 @@
+﻿@page
+@model Primark.Pages.UserPages.ViewFilesModel
+@{
+}
+
+<h1>View Shopping Items</h1>
+<br />
+<div class="col-md-10">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>File</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        @for (int i = 0; i < Model.FileRec.Count; i++)
+        {
+            <tr>
+                <td>@Model.FileRec[i].FileName</td>
+                <td><img src="~/Files/@Model.FileRec[i].FileName" style=" max-width:80px;" /></td>
+                <td><a asp-page="/UserPages/ViewPurchasedFiles" asp-route-id="@Model.FileRec[i].Id">Buy</a></td>
+            </tr>
+        }
+    </table>
+    <br />
+    <div>
+        <a asp-page="/UserPages/UserIndex">Back to Main Page</a>
+    </div>
+</div>

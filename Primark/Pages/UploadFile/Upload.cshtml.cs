@@ -52,19 +52,20 @@ namespace Primark.Pages.UploadFile
             SqlConnection conn = new SqlConnection(DbString);
             conn.Open();
 
+            Console.WriteLine(CusFile.FileName);
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"INSERT CustomerFile (CustomerFirstName, CustomerLastName, FileName) VALUES (@CusFName, @CusLName @FName)";
-                command.Parameters.AddWithValue("@CusFName", CusFileRec.CustomerFirstName);
-                command.Parameters.AddWithValue("@CusLName", CusFileRec.CustomerLastName);
-                command.Parameters.AddWithValue("@FName", CusFile.FileName);
+                command.CommandText = @"INSERT CustomerFile (CustomerFName, CustomerLName, FileName) VALUES (@CusFName, @CusLName, @FileName)";
+                command.Parameters.AddWithValue("@CusFName", CusFileRec.CustomerFName);
+                command.Parameters.AddWithValue("@CusLName", CusFileRec.CustomerLName);
+                command.Parameters.AddWithValue("@FileName", CusFile.FileName);
                 command.ExecuteNonQuery();
             }
 
 
 
-            return RedirectToPage("AdminPages/AdminIndex");
+            return RedirectToPage("/AdminPages/AdminIndex");
         }
 
     

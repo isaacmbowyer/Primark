@@ -33,8 +33,8 @@ namespace Primark.Pages.ViewFile
                 {
                     CustomerFile rec = new CustomerFile();
                     rec.Id = reader.GetInt32(0);
-                    rec.CustomerFirstName = reader.GetString(1);
-                    rec.CustomerLastName = reader.GetString(2);
+                    rec.CustomerFName = reader.GetString(1);
+                    rec.CustomerLName = reader.GetString(2);
                     rec.FileName = reader.GetString(3);
                     FileRec.Add(rec);
                 }

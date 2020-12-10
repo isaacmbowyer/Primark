@@ -43,8 +43,8 @@ namespace Primark.Pages.DeleteFile
                 while (reader.Read())
                 {
                     CusFileRec.Id = reader.GetInt32(0);
-                    CusFileRec.CustomerFirstName= reader.GetString(1);
-                    CusFileRec.CustomerLastName = reader.GetString(2);
+                    CusFileRec.CustomerFName= reader.GetString(1);
+                    CusFileRec.CustomerLName = reader.GetString(2);
                     CusFileRec.FileName = reader.GetString(3);
                 }
 

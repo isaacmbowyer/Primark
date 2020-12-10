@@ -12,10 +12,10 @@ namespace Primark.Models
         public int Id { get; set; }
 
         [Display(Name = "Customer First Name")]
-        public string CustomerFirstName { get; set; }
+        public string CustomerFName { get; set; }
 
         [Display(Name = "Customer Last Name")]
-        public string CustomerLastName { get; set; }
+        public string CustomerLName { get; set; }
 
         [Display(Name = "Customer File")]
         public string FileName { get; set; }
