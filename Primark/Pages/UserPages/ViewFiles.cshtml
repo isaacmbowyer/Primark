@@ -11,7 +11,6 @@
             <tr>
                 <th>File Name</th>
                 <th>File</th>
-                <th>Action</th>
             </tr>
         </thead>
 
@@ -20,7 +19,6 @@
             <tr>
                 <td>@Model.FileRec[i].FileName</td>
                 <td><img src="~/Files/@Model.FileRec[i].FileName" style=" max-width:80px;" /></td>
-                <td><a asp-page="/UserPages/ViewPurchasedFiles" asp-route-id="@Model.FileRec[i].Id">Buy</a></td>
             </tr>
         }
     </table>

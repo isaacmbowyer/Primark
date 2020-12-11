@@ -9,7 +9,7 @@ namespace Primark.Pages
     {
         public string DbString()
         {
-            string dbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\zairu\source\repos\Week9CUploadFileSolution\UploadFile1\Data\UploadFile1.mdf;Integrated Security=True;Connect Timeout=30";  // Database Connection String goes here 
+            string dbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Isaac Bowyer\source\repos\Primark\Primark\Data\Customer_Files.mdf;Integrated Security=True";  // Database Connection String goes here 
             return dbString;
         }
     }
